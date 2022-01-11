@@ -1,58 +1,46 @@
 <!doctype html>
 <html lang="pt">
   <head>
-    <title>Projeto CoinGecko</title>
+    <title>Projeto Criptos</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!--Nosso CSS-->
     <link rel="stylesheet" href="css/style.css">
   </head>
-  <body>
-      
+  <body id="ConfigurarFundoEcra">  
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark"><!--Cor da Barra de Navegação é preta-->
-      <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
-          <a class="navbar-brand mx-auto" href="index.html">Home</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                  <a class="nav-link" href="index.html">Home</a><!--Ligação para a HomePage ou Página Principal-->
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="detalhes.html">Detalhes</a><!--Ligação para a página Detalhes-->
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="favoritos.html">Favoritos</a><!--Ligação para Página Favoritos-->
-              </li>
-          </ul>
+    <div class="topnav" id="myTopnav">
+      <a  href="index.html">
+        <img src="images/logo_coingecko.PNG"  class="imagemdefundo">
+      </a>
+      <div class="container">
+        <a href="index.html">Home</a>
+        <a href="detalhes.html">Detalhes</a>
+        <a href="favoritos.html">Favoritos</a>
+        <a href="javascript:void(0);" class="icon" onclick="responsivenavbar()">&#9776;</a>
       </div>
-      <div class="navbar-collapse collapse w-100 order-3 dual-collapse2"><!--Barra de pesquisa na navbar caso seja para usar-->
-      </div>
-    </nav>
-    <p></p>
+    </div>
     <!--Tabela com os campos da API-->
+    <p></p>
     <div class="container">
       <div class="row">
         <table class="table">
           <thead>
-            <tr>
+            <tr">
               <th scope="col">Posição</th>
               <th scope="col">Nome</th>
-              <th scope="col">Valor da Moeda</th>
+              <th scope="col">Valor</th>
               <th scope="col">Volume em 24 Horas</th>
               <th scope="col">Últimos 7 dias</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <th scope="row"></th>
-              <td></td>
+              <th scope="row" ></th>
+              <td id="nome"></td>
               <td></td>
               <td></td>
               <td></td>
@@ -67,8 +55,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <!--Nosso JavaScript-->
+    <script type="text/javascript" src="./js/navbarscript.js"></script>
     <script type="text/javascript" src="./js/funcoes_api.js"></script>
-    <script type="text/javascript" src="./js/homepage.js"></script>
+    <script type="text/javascript" src="./js/funcoes_homepage.js"></script>
     <script type="text/javascript" src="./js/funcoes_localstorage.js"></script>
   </body>
 </html>
