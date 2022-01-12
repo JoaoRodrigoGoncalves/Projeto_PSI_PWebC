@@ -9,7 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!--Nosso CSS-->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style_detalhes.css">
   </head>
   <body>
       
@@ -18,15 +18,40 @@
     <div class="boxPesquisa">
       <h5>Pesquisa:</h5>
       <input type="text" id="pesquisa" class="form-control" name="pesquisa" placeholder="Pesquisa">
-      <button class="btn btn-primary" id="btSearch">Procurar</button>
+      <input onclick="pesquisa()" id="btSearch" type="submit" value="Procurar">
     </div>
+
+    <!-- Corpo de Detalhes -->
+    <div class="panel panel-default">
+		  	<div class="panel-body">   	
+		    	<div class="mediaGroup">
+					<ul class="media-list">
+						<li class="media">
+						  <div class="media-body">
+							    <h4 class="title media-heading"></h4>
+							    <p>
+							    	<span class="nome"> </span><br>
+							    	<span class="rank"> </span><br>
+                    <span class="desc"> </span>
+							    </p>
+							</div>
+              <div class="media-right">
+                <a href="" id="link">
+							     	<img class="media-object" id="image">
+                </a>
+							</div>
+						</li>
+					</ul>
+			    </div>
+		  	</div>
+		</div>
     <!-- Bootstrap Files -->
     <script type="text/javascript" src="./js/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <!--Nosso JavaScript-->
+    <script type="text/javascript" src="./js/funcao_detalhes.js"></script>
     <script type="text/javascript" src="./js/funcoes_api.js"></script>
     <script type="text/javascript" src="./js/funcoes_localstorage.js"></script>
-    <script type="text/javascript" src="./js/funcoes_pesquisa.js"></script>
   </body>
 </html>
