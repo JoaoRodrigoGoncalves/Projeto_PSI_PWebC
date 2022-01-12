@@ -82,5 +82,24 @@ function toggleMoeda()
 function obterPreferenciaMoeda()
 {
     var moeda = localStorage.getItem('moeda');
-    return moeda ?? 'eur';
+    return moeda ?? 'eur'; // devolve moeda se não nulo. devolve 'eur' se nulo
+}
+
+/**
+ * 
+ */
+function apresentarBotaoFavoritos(id)
+{
+    var lista_moedas = [];
+    var temp = JSON.parse(localStorage.getItem('favoritos'));
+    lista_moedas = temp ?? []; // lista_moedas é igual a temp caso este não seja nulo. Se este for nulo, lista_moedas é uma array vazia
+
+    if(lista_moedas.includes(id))
+    {
+        return "R"; // remover dos favoritos
+    }
+    else
+    {
+        return "A"; // adicionar aos favoritos
+    }
 }
