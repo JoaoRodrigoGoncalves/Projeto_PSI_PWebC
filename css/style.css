@@ -128,3 +128,11 @@
   table tr{
     color:black;
   }
+
+.thumb_img_tabela{
+    display: inline-block;
+}
+
+.tabela_criptomoedas{
+    text-align: center;
+}
