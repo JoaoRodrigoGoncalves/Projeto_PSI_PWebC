@@ -11,7 +11,7 @@
  * do utilizador (localstorage)
  * @param id_moeda O ID da moeda (tal como indicado pela API da CoinGecko)
  */
-function adicionar_favoritos(id_moeda)
+function adicionarFavoritos(id_moeda)
 {
     var lista_moedas = [];
     var temp = JSON.parse(localStorage.getItem('favoritos'));
@@ -32,7 +32,7 @@ function adicionar_favoritos(id_moeda)
  * do utilizador (localstorage)
  * @param id_moeda O ID da moeda (tal como indicado pela API da CoinGecko)
  */
-function remover_favoritos(id_moeda)
+function removerFavoritos(id_moeda)
 {
     var lista_moedas = [];
     var temp = JSON.parse(localStorage.getItem('favoritos'));
@@ -51,7 +51,55 @@ function remover_favoritos(id_moeda)
 /**
  * Devolve a array com todas as criptomoedas guardadas
  */
-function obter_favoritos()
+function obterFavoritos()
 {
-    return JSON.parse(localStorage.getItem('favoritos'));
+    var favoritos = JSON.parse(localStorage.getItem('favoritos'));
+    return favoritos ?? [];
+}
+
+/**
+ * Alterna a moeda entre Euro e Dólar Americano
+ */
+function toggleMoeda()
+{
+    var moeda = localStorage.getItem('moeda');
+    if(moeda == null)
+    {
+        // assumimos que a moeda está na padrão (eur) e trocamos para USD
+        moeda = "usd";
+    }
+    else
+    {
+        moeda == "eur" ? moeda = "usd" : moeda = "eur";
+    }
+    localStorage.setItem('moeda', moeda);
+}
+
+/**
+ * Obtém a moeda de preferência do utilizador.
+ * Caso a preferência não esteja guardada, assume Euro.
+ */
+function obterPreferenciaMoeda()
+{
+    var moeda = localStorage.getItem('moeda');
+    return moeda ?? 'eur'; // devolve moeda se não nulo. devolve 'eur' se nulo
+}
+
+/**
+ * 
+ */
+function apresentarBotaoFavoritos(id)
+{
+    var lista_moedas = [];
+    var temp = JSON.parse(localStorage.getItem('favoritos'));
+    lista_moedas = temp ?? []; // lista_moedas é igual a temp caso este não seja nulo. Se este for nulo, lista_moedas é uma array vazia
+
+    if(lista_moedas.includes(id))
+    {
+        return "R"; // remover dos favoritos
+    }
+    else
+    {
+        return "A"; // adicionar aos favoritos
+    }
 }
