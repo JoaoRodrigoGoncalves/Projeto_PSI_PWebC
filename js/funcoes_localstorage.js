@@ -114,7 +114,7 @@ function apresentarBotaoFavoritos(id)
     var temp = JSON.parse(localStorage.getItem('favoritos'));
     lista_moedas = temp ?? []; // lista_moedas é igual a temp caso este não seja nulo. Se este for nulo, lista_moedas é uma array vazia
 
-    if(lista_moedas.includes(id))
+    if(idNaLista(lista_moedas, id))
     {
         return '<a href="#" onclick="abrirModalRemocao(\'' + id + '\')"><img class="favoritos_remover" src="./images/estrela_pre.png" /></a>'; // remover dos favoritos
     }
