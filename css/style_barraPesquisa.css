@@ -1,0 +1,32 @@
+.media-left {
+	width: 100px;
+	float: left;
+}
+
+.thumbnail{
+	border: none !important;
+}
+
+.boxPesquisa {
+	margin-left: 550pt;
+}
+
+#pesquisa {
+	width: 300px;
+	display: inline-block;
+}
+
+.panel-default {
+	margin: 20px;
+}
+
+.btn_pesquisa
+{
+	width: 30px;
+	height: 35px;
+}
+
+.btSearch
+{
+	background-color: black;
+}
