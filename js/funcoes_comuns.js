@@ -1,5 +1,20 @@
 'use strict';
 
+var modal_remover;
+
+function obterSimboloMonetario()
+{
+    if(obterPreferenciaMoeda() == "eur")
+    {
+        return "€";
+    }
+    else
+    {
+        return "$";
+    }
+}
+
+
 function responsivenavbar() {
     var x = document.getElementById("myTopnav");
     if (x.className === "topnav") {
@@ -20,18 +35,18 @@ function analise_mudanca_preco(valor_mudanca, percentagem)
     if(valor_mudanca < 0)
     {
         // valor desceu
-        return `<span style="color: red;">${valor_mudanca}${simbolo_monetario} (${Math.round((percentagem + Number.EPSILON) * 1000) / 1000}%)</span>`;
+        return `<span style="color: red;">${valor_mudanca}${obterSimboloMonetario()} (${Math.round((percentagem + Number.EPSILON) * 1000) / 1000}%)</span>`;
     }
     else
     {
         if(valor_mudanca > 0)
         {
             // valor subiu
-            return `<span style="color: green;">+${valor_mudanca}${simbolo_monetario} (${Math.round((percentagem + Number.EPSILON) * 1000) / 1000}%)</span>`;
+            return `<span style="color: green;">+${valor_mudanca}${obterSimboloMonetario()} (${Math.round((percentagem + Number.EPSILON) * 1000) / 1000}%)</span>`;
         }
         else
         {
-            return `=${valor_mudanca}${simbolo_monetario} (${Math.round((percentagem + Number.EPSILON) * 1000) / 1000}%)`;
+            return `=${valor_mudanca}${obterSimboloMonetario()} (${Math.round((percentagem + Number.EPSILON) * 1000) / 1000}%)`;
         }
     }
 }
@@ -69,7 +84,23 @@ function acionarRemocao(id)
     if(response.success)
     {
         $(`#line-${id} > td:first-child > a > img`).attr("src", "./images/estrela_npre.png");
+        $(`#line-${id} > td:first-child > a`).attr("onclick", `acionarAdicao('${id}')`);
+        $(`#line-${id} > td:first-child > a > img`).removeClass("favoritos_remover");
         modal_remover.hide();
+    }
+    else
+    {
+        console.error(response.message);
+    }
+}
+
+function acionarAdicao(id)
+{
+    var response = adicionarFavoritos(id);
+    if(response.success)
+    {
+        $(`#line-${id} > td:first-child > a > img`).attr("src", "./images/estrela_pre.png");
+        $(`#line-${id} > td:first-child > a`).attr("onclick", `abrirModalRemocao('${id}')`)
     }
     else
     {
