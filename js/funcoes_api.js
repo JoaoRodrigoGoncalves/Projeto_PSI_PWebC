@@ -1,13 +1,5 @@
 'use scrict';
 
-function pesquisa(){
-    var resPesquisa = document.getElementById("pesquisa").value;
-    var criptomoeda = resPesquisa.toLowerCase();
-
-    console.log(criptomoeda);   
-    obterMoeda(criptomoeda, detalhes);
-}
-
 function obterMoeda(id, callback)
 {
     $.ajax({
