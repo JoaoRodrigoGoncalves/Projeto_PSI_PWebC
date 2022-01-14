@@ -103,23 +103,3 @@ function idNaLista(lista, id){
     });
     return naLista;
 }
-
-/**
- * Apresenta o botão de favoritos correto, juntamente
- * com as funções necessárias.
- */
-function apresentarBotaoFavoritos(id)
-{
-    var lista_moedas = [];
-    var temp = JSON.parse(localStorage.getItem('favoritos'));
-    lista_moedas = temp ?? []; // lista_moedas é igual a temp caso este não seja nulo. Se este for nulo, lista_moedas é uma array vazia
-
-    if(idNaLista(lista_moedas, id))
-    {
-        return '<a href="#" onclick="abrirModalRemocao(\'' + id + '\')"><img class="favoritos_remover" src="./images/estrela_pre.png" /></a>'; // remover dos favoritos
-    }
-    else
-    {
-        return '<a href="#" onclick="adicionarFavoritos(\'' + id + '\')"><img class="favoritos_adicionar" src="./images/estrela_npre.png" /></a>'; // adicionar aos favoritos
-    }
-}
