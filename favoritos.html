@@ -4,7 +4,7 @@
     <title>Projeto Criptos</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -31,20 +31,23 @@
       </div>
     </div>
     <!-- Wrapper -->
+    <p></p>
     <div class="container">
-      <table class="table table-striped tabela_criptomoedas" id="tabela_favoritos">
-        <thead>
-          <tr>
-            <th></th>
-            <th>#</th>
-            <th colspan="2">Nome</th>
-            <th>Valor</th>
-            <th>Valorização Últimas 24h</th>
-          </tr>
-        </thead>
-        <tbody>
-        </tbody>
-      </table>
+      <div class="row">
+        <table class="table tabela_criptomoedas mt-5" id="tabela_favoritos">
+          <thead>
+            <tr>
+              <th></th>
+              <th>#</th>
+              <th colspan="2">Nome</th>
+              <th>Valor</th>
+              <th>Valorização Últimas 24h</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
     </div>
 
     <!-- Modal de confirmação de remoção -->
@@ -70,6 +73,7 @@
     <!--Nosso JavaScript-->
     <script type="text/javascript" src="./js/funcao_detalhes.js"></script>
     <script type="text/javascript" src="./js/navbarscript.js"></script>
+    <script type="text/javascript" src="./js/funcoes_comuns.js"></script>
     <script type="text/javascript" src="./js/funcoes_api.js"></script>
     <script type="text/javascript" src="./js/funcoes_localstorage.js"></script>
     <script type="text/javascript" src="./js/script_favoritos.js"></script>
