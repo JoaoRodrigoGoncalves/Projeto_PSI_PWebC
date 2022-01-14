@@ -18,14 +18,14 @@ function detalhes(res){
     console.log(res.data.image.large);
     console.log(res.data.description.pt);
     console.log(res.data.market_data.current_price.eur);
-    console.log(res.data.market_data.ath_change_percentage.eur);
+    console.log(res.data.market_data.price_change_24h);
 
 
     $('.nome', CloneMedia).text("Nome: " + res.data.name);
     $('.rank', CloneMedia).text("Rank no Mercado: " + res.data.market_cap_rank);
     $('.desc', CloneMedia).html("Descrição: " + res.data.description.en);
     $('.precoAtual', CloneMedia).html("Preço Atual: " + res.data.market_data.current_price.eur);
-    $('.precoChance', CloneMedia).html("Alteração do Preço Total: " + res.data.market_data.ath_change_percentage.eur);
+    $('.precoChance', CloneMedia).html("Alteração do Preço nas Ultimas 24h: " + res.data.market_data.price_change_24h);
     $('#image', CloneMedia).attr('src', res.data.image.large);
     $('.link', CloneMedia).attr('href', res.data.links.homepage[0])
 
