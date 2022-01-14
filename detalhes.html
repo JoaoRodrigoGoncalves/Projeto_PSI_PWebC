@@ -9,7 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!--Nosso CSS-->
-    <link rel="stylesheet" href="css/style_detalhes.css">
+    <link rel="stylesheet" href="css/style_barraPesquisa.css">
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body id="ConfigurarFundoEcra">
@@ -23,16 +23,13 @@
         <a href="index.html">Home</a>
         <a href="favoritos.html">Favoritos</a>
         <a href="javascript:void(0);" class="icon" onclick="responsivenavbar()">&#9776;</a>
+        <!-- Barra Pesquisa-->
+        <div class="boxPesquisa">
+          <input type="text" id="pesquisa" class="form-control" name="pesquisa" placeholder="Pesquisa">
+          <button onclick="pesquisa()" class="btSearch" type="submit"><img src="images/btn_pesquisa.png" class="btn_pesquisa"></button>
+        </div>
       </div>
     </div>
-    
-    <!-- Barra Pesquisa-->
-    <div class="boxPesquisa">
-      <h5>Pesquisa:</h5>
-      <input type="text" id="pesquisa" class="form-control" name="pesquisa" placeholder="Pesquisa">
-      <input onclick="pesquisa()" id="btSearch" type="submit" value="Procurar">
-    </div>
-
     <!-- Corpo de Detalhes -->
     <div class="panel panel-default">
 		  	<div class="panel-body">   	

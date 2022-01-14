@@ -8,23 +8,25 @@
 }
 
 .boxPesquisa {
-	margin: 20px;
+	margin-left: 550pt;
 }
 
 #pesquisa {
-	margin: 0px;
-	width: 400px;
-	display: inline-block;
-}
-
-h1 {
-	margin-left: 20px;
-}
-
-h5 {
+	width: 300px;
 	display: inline-block;
 }
 
 .panel-default {
 	margin: 20px;
+}
+
+.btn_pesquisa
+{
+	width: 30px;
+	height: 35px;
+}
+
+.btSearch
+{
+	background-color: black;
 }
