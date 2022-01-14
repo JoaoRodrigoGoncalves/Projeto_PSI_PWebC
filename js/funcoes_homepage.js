@@ -9,10 +9,3 @@ function apresentar_dados(dados)
     })
 }
 obterTop100(apresentar_dados);
-
-function abrirModalRemocao(id)
-{
-    var modal = new bootstrap.Modal(document.getElementById("confirmacaoModal"));
-    $("#confirmarRemocaoBTN").attr("onclick", "removerFavoritos('" + id + "')");
-    modal.show();
-}
