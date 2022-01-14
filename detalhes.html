@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="pt">
   <head>
-    <title>Projeto CoinGecko</title>
+    <title>Projeto Criptos</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,9 +11,21 @@
     <!--Nosso CSS-->
     <link rel="stylesheet" href="css/style_detalhes.css">
   </head>
-  <body>
+  <body id="ConfigurarFundoEcra">
       
     <!-- Navbar -->
+    <div class="topnav" id="myTopnav">
+      <a  href="index.html">
+        <img src="images/logo_coingecko.PNG"  class="imagemdefundo">
+      </a>
+      <div class="container">
+        <a href="index.html">Home</a>
+        <a href="detalhes.html">Detalhes</a>
+        <a href="favoritos.html">Favoritos</a>
+        <a href="javascript:void(0);" class="icon" onclick="responsivenavbar()">&#9776;</a>
+      </div>
+    </div>
+    
     <!-- Barra Pesquisa-->
     <div class="boxPesquisa">
       <h5>Pesquisa:</h5>
@@ -53,6 +65,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <!--Nosso JavaScript-->
     <script type="text/javascript" src="./js/funcao_detalhes.js"></script>
+    <script type="text/javascript" src="./js/navbarscript.js"></script>
     <script type="text/javascript" src="./js/funcoes_api.js"></script>
     <script type="text/javascript" src="./js/funcoes_localstorage.js"></script>
   </body>

@@ -11,20 +11,23 @@
  * do utilizador (localstorage)
  * @param id_moeda O ID da moeda (tal como indicado pela API da CoinGecko)
  */
-function adicionar_favoritos(id_moeda)
+function adicionarFavoritos(id_moeda)
 {
     var lista_moedas = [];
     var temp = JSON.parse(localStorage.getItem('favoritos'));
     lista_moedas = temp ?? []; // lista_moedas é igual a temp caso este não seja nulo. Se este for nulo, lista_moedas é uma array vazia
 
-    if(lista_moedas.includes(id_moeda))
+    if(idNaLista(lista_moedas, id_moeda))
     {
         return JSON.parse('{"success": false, "message": "Esta criptomoeda já se encontra guardada"}');
     }
-
-    lista_moedas.push(id_moeda);
-    localStorage.setItem('favoritos', JSON.stringify(lista_moedas));
-    return JSON.parse('{"success": true}');
+    else
+    {
+        var novaMoeda = {id: id_moeda, data: Date()};
+        lista_moedas.push(novaMoeda);
+        localStorage.setItem('favoritos', JSON.stringify(lista_moedas));
+        return JSON.parse('{"success": true}');
+    }
 }
 
 /**
@@ -32,18 +35,20 @@ function adicionar_favoritos(id_moeda)
  * do utilizador (localstorage)
  * @param id_moeda O ID da moeda (tal como indicado pela API da CoinGecko)
  */
-function remover_favoritos(id_moeda)
+function removerFavoritos(id_moeda)
 {
     var lista_moedas = [];
     var temp = JSON.parse(localStorage.getItem('favoritos'));
     lista_moedas = temp ?? []; // lista_moedas é igual a temp caso este não seja nulo. Se este for nulo, lista_moedas é uma array vazia
 
-    if(lista_moedas.includes(id_moeda))
+    if(idNaLista(lista_moedas, id_moeda))
     {
-        lista_moedas = lista_moedas.filter(item => item !== id_moeda);
+        lista_moedas = lista_moedas.filter(item => item.id !== id_moeda);
         localStorage.setItem('favoritos', JSON.stringify(lista_moedas));
         return JSON.parse('{"success": true}');
-    }else{
+    }
+    else
+    {
         return JSON.parse('{"success": false, "message": "Esta criptomoeda não está na lista de favoritos"}');
     }
 }
@@ -51,7 +56,70 @@ function remover_favoritos(id_moeda)
 /**
  * Devolve a array com todas as criptomoedas guardadas
  */
-function obter_favoritos()
+function obterFavoritos()
 {
-    return JSON.parse(localStorage.getItem('favoritos'));
+    var favoritos = JSON.parse(localStorage.getItem('favoritos'));
+    return favoritos ?? [];
+}
+
+/**
+ * Alterna a moeda entre Euro e Dólar Americano
+ */
+function toggleMoeda()
+{
+    var moeda = localStorage.getItem('moeda');
+    if(moeda == null)
+    {
+        // assumimos que a moeda está na padrão (eur) e trocamos para USD
+        moeda = "usd";
+    }
+    else
+    {
+        moeda == "eur" ? moeda = "usd" : moeda = "eur";
+    }
+    localStorage.setItem('moeda', moeda);
+}
+
+/**
+ * Obtém a moeda de preferência do utilizador.
+ * Caso a preferência não esteja guardada, assume Euro.
+ */
+function obterPreferenciaMoeda()
+{
+    var moeda = localStorage.getItem('moeda');
+    return moeda ?? 'eur'; // devolve moeda se não nulo. devolve 'eur' se nulo
+}
+
+/**
+ * 
+ */
+function idNaLista(lista, id){
+    var naLista = false;
+    $.each(lista, function(index, value){
+        if(value.id == id)
+        {
+            naLista = true;
+        }
+    });
+    return naLista;
+}
+
+/**
+ * Apresenta o botão de favoritos correto, juntamente
+ * com as funções necessárias.
+ */
+function apresentarBotaoFavoritos(id)
+{
+    var lista_moedas = [];
+    var temp = JSON.parse(localStorage.getItem('favoritos'));
+    lista_moedas = temp ?? []; // lista_moedas é igual a temp caso este não seja nulo. Se este for nulo, lista_moedas é uma array vazia
+
+    if(idNaLista(lista_moedas, id))
+    {
+        return '<a href="#" onclick="abrirModalRemocao(\'' + id + '\')"><img class="favoritos_remover" src="./images/estrela_pre.png" /></a>'; // remover dos favoritos
+    }
+    else
+    {
+        return '<a href="#" onclick="adicionarFavoritos(\'' + id + '\')"><img class="favoritos_adicionar" src="./images/estrela_npre.png" /></a>'; // adicionar aos favoritos
+    }
 }
