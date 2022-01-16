@@ -25,18 +25,18 @@ function analise_mudanca_preco(valor_mudanca, percentagem)
     if(valor_mudanca < 0)
     {
         // valor desceu
-        return `<span style="color: red;">${valor_mudanca}${obterSimboloMonetario()} (${Math.round((percentagem + Number.EPSILON) * 1000) / 1000}%)</span>`;
+        return `<span style="color: red;">${Math.round((valor_mudanca + Number.EPSILON) * 1000) / 1000}${obterSimboloMonetario()} (${Math.round((percentagem + Number.EPSILON) * 1000) / 1000}%)</span>`;
     }
     else
     {
         if(valor_mudanca > 0)
         {
             // valor subiu
-            return `<span style="color: green;">+${valor_mudanca}${obterSimboloMonetario()} (${Math.round((percentagem + Number.EPSILON) * 1000) / 1000}%)</span>`;
+            return `<span style="color: green;">+${Math.round((valor_mudanca + Number.EPSILON) * 1000) / 1000}${obterSimboloMonetario()} (${Math.round((percentagem + Number.EPSILON) * 1000) / 1000}%)</span>`;
         }
         else
         {
-            return `=${valor_mudanca}${obterSimboloMonetario()} (${Math.round((percentagem + Number.EPSILON) * 1000) / 1000}%)`;
+            return `=${Math.round((valor_mudanca + Number.EPSILON) * 1000) / 1000}${obterSimboloMonetario()} (${Math.round((percentagem + Number.EPSILON) * 1000) / 1000}%)`;
         }
     }
 }
@@ -53,11 +53,11 @@ function apresentarBotaoFavoritos(id)
 
     if(idNaLista(lista_moedas, id))
     {
-        return `<a href="#" onclick="abrirModalRemocao(\'${id}\')"><img class="favoritos_remover" src="./images/estrela_pre.png" /></a>`; // remover dos favoritos
+        return `<a href="javascript:void(0);" onclick="abrirModalRemocao(\'${id}\')"><img class="favoritos_remover" src="./images/estrela_pre.png" /></a>`; // remover dos favoritos
     }
     else
     {
-        return `<a href="#" onclick="adicionarFavoritos(\'${id}\')"><img class="favoritos_adicionar" src="./images/estrela_npre.png" /></a>`; // adicionar aos favoritos
+        return `<a href="javascript:void(0);" onclick="adicionarFavoritos(\'${id}\')"><img class="favoritos_adicionar" src="./images/estrela_npre.png" /></a>`; // adicionar aos favoritos
     }
 }
 
