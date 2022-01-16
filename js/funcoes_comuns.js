@@ -14,16 +14,6 @@ function obterSimboloMonetario()
     }
 }
 
-
-function responsivenavbar() {
-    var x = document.getElementById("myTopnav");
-    if (x.className === "topnav") {
-        x.className += " responsive";
-    } else {
-        x.className = "topnav";
-    }
-}
-
 /**
  * Altera a cor consoante a alteração do preço (em 0)
  * Verde: Alteração positiva
