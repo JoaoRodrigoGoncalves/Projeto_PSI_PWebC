@@ -54,7 +54,7 @@ function ordenarMostrar(market_cap = true)
     $.each(dadosMoedas_sorted, function(index, value){
         if(value != undefined)
         {
-            var linha = `<tr id="line-${value.data.id}"><td>${apresentarBotaoFavoritos(value.data.id)}</td><td>${value.data.market_cap_rank}</td><td><img class="thumb_img_tabela" src="${value.data.image.thumb}"/> <a class="link_tabela" href="./detalhes.html?id=${value.data.id}">${value.data.name}</a></td><td>${value.data.symbol}</td><td>${value.data.market_data.current_price[obterPreferenciaMoeda()]}${obterSimboloMonetario()}</td><td>${analise_mudanca_preco(value.data.market_data.price_change_24h_in_currency[obterPreferenciaMoeda()], value.data.market_data.price_change_percentage_24h_in_currency[obterPreferenciaMoeda()])}</td></tr>`;
+            var linha = `<tr id="line-${value.data.id}"><td>${apresentarBotaoFavoritos(value.data.id)}</td><td>${value.data.market_cap_rank}</td><td><img class="thumb_img_tabela" src="${value.data.image.thumb}"/> <a class="link_tabela" href="./detalhes.html?id=${value.data.id}">${value.data.name}</a></td><td class="d-none d-sm-table-cell">${value.data.symbol.toUpperCase()}</td><td>${value.data.market_data.current_price[obterPreferenciaMoeda()]}${obterSimboloMonetario()}</td><td>${analise_mudanca_preco(value.data.market_data.price_change_24h_in_currency[obterPreferenciaMoeda()], value.data.market_data.price_change_percentage_24h_in_currency[obterPreferenciaMoeda()])}</td></tr>`;
             $(linha).hide().appendTo('#tabela_favoritos > tbody').fadeIn(800);
         }
     });
