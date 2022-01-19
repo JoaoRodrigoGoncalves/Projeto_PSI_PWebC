@@ -118,3 +118,10 @@ function acionarAdicao(id)
         console.error(response.message);
     }
 }
+
+function mudar_pagina() {
+    var idPesquisa = document.getElementById("pesquisa").value;
+
+    $(location).attr('href', './detalhes.html?id='+idPesquisa);
+}
+

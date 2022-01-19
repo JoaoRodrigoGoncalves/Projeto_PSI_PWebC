@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body id="ConfigurarFundoEcra">
+    <!--NavBar-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
         <a class="navbar-brand" href="./index.html"><i class="bi bi-coin"></i> MyCoinSpace</a>
@@ -30,8 +31,8 @@
             </li>
           </ul>
           <div class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Criptomoeda" aria-label="Search">
-            <button class="btn btn-outline-secondary" onclick="pesquisa()">
+            <input class="form-control me-2" type="search" placeholder="Criptomoeda" aria-label="Search" id="pesquisa">
+            <button class="btn btn-outline-secondary" onclick="mudar_pagina()">
               <img src="./images/btn_pesquisa.png" height="25" width="25"/>
             </button>
           </div>
@@ -39,31 +40,21 @@
       </div>
     </nav>
     <!-- Corpo de Detalhes -->
-    <div class="panel panel-default">
-		  	<div class="panel-body">   	
-		    	<div class="mediaGroup">
-					<ul class="media-list">
-						<li class="media">
-						  <div class="media-body">
-							    <h4 class="title media-heading"></h4>
-							    <p>
-							    	<span class="nome"> </span><br><br>
-							    	<span class="rank"> </span><br><br>
-                    <span class="precoAtual"> </span><br><br>
-                    <span class="precoChance"> </span><br><br>
-                    <span class="desc"> </span>
-							    </p>
-							</div>
-              <div class="media-right">
-                <a href="" id="link">
-							     	<img class="media-object" id="image">
-                </a>
-							</div>
-						</li>
-					</ul>
-			    </div>
-		  	</div>
+    <div class="CriptoImg">
+      <a href="" id="link">
+		   	<img id="image">
+      </a>
 		</div>
+    <div class="CriptoDetalhes">
+			  <p>
+			   	<span id="nome"> </span><br><br>
+			   	<span id="rank"> </span><br><br>
+          <span id="precoAtual"> </span><br><br>
+          <span id="precoChance"> </span><br><br>
+          <span id="desc"> </span>
+				</p>
+		</div>
+    
     <!-- Bootstrap Files -->
     <script type="text/javascript" src="./js/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
