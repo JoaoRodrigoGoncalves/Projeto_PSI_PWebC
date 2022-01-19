@@ -78,7 +78,7 @@ function apresentarBotaoFavoritos(id)
     }
     else
     {
-        return `<a href="javascript:void(0);" onclick="adicionarFavoritos(\'${id}\')"><img class="favoritos_adicionar" src="./images/estrela_npre.png" /></a>`; // adicionar aos favoritos
+        return `<a href="javascript:void(0);" onclick="acionarAdicao(\'${id}\')"><img class="favoritos_adicionar" src="./images/estrela_npre.png" /></a>`; // adicionar aos favoritos
     }
 }
 
