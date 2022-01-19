@@ -10,8 +10,28 @@ function obterMoeda(id, callback)
         callback(JSON.parse('{"success": true, "data": ' + JSON.stringify(res) + '}'));
     })
     .fail(function(res){
-        console.error("Erro: " + res.responseJSON.error);
-        callback(JSON.parse('{"success": false, "data": "' + res.responseJSON.error + '"}'));
+        var error;
+        switch (res.status) {
+            case 429:
+                error = "Limite de ~50 pedidos/min excedido. Tente novamente mais tarde.";
+                break;
+            
+            case 200:
+                error = res.responseJSON.error;
+                break;
+
+            default:
+                if(res.responseJSON == undefined)
+                {
+                    error = "Um erro desconhecido occoreu. Mensagem do servidor: " + res.responseText;
+                }
+                else
+                {
+                    error = res.responseJSON.error;
+                }
+                break;
+        }
+        callback(JSON.parse('{"success": false, "data": "' + error + '"}'));
     });
 }
 
@@ -25,6 +45,27 @@ function obterTop100(callback, order = "market_cap_desc", max_per_page = 100)
         callback(JSON.parse('{"success": true, "data": ' + JSON.stringify(res) + '}'));
     })
     .fail(function(res){
-        callback(JSON.parse('{"success": false, "data": "' + res.responseJSON.error + '"}'));
+        var error;
+        switch (res.status) {
+            case 429:
+                error = "Limite de ~50 pedidos/min excedido. Tente novamente mais tarde.";
+                break;
+            
+            case 200:
+                error = res.responseJSON.error;
+                break;
+
+            default:
+                if(res.responseJSON == undefined)
+                {
+                    error = "Um erro desconhecido occoreu. Mensagem do servidor: " + res.responseText;
+                }
+                else
+                {
+                    error = res.responseJSON.error;
+                }
+                break;
+        }
+        callback(JSON.parse('{"success": false, "data": "' + error + '"}'));
     })
 }

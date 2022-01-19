@@ -41,6 +41,27 @@ function analise_mudanca_preco(valor_mudanca, percentagem)
     }
 }
 
+function mudanca_preco_percentagem(valor_mudanca, percentagem)
+{
+    if(valor_mudanca < 0)
+    {
+        // valor desceu
+        return `<span style="color: red;">${Math.round((percentagem + Number.EPSILON) * 1000) / 1000}%</span>`;
+    }
+    else
+    {
+        if(valor_mudanca > 0)
+        {
+            // valor subiu
+            return `<span style="color: green;">+${Math.round((percentagem + Number.EPSILON) * 1000) / 1000}%</span>`;
+        }
+        else
+        {
+            return `${Math.round((percentagem + Number.EPSILON) * 1000) / 1000}%`;
+        }
+    }
+}
+
 /**
  * Apresenta o botão de favoritos correto, juntamente
  * com as funções necessárias.
