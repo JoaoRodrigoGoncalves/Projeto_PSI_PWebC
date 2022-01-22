@@ -53,4 +53,3 @@ table tr{
   0% { opacity: 100%;}
   100% { transform: scale(3) rotate(35); opacity: 0%; }
 }
-
