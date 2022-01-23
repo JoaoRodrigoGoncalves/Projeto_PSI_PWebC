@@ -40,13 +40,38 @@
     </nav>
     <!--Tabela com os campos da API-->
     <div class="container">
+      <div class="mt-5"> <!-- Div para alinhar todos os botões -->
+        <div class="btn-group m-1" role="group" aria-label="Trocar entre mostrar 100 e 10 moedas">
+          <input type="radio" class="btn-check" name="tipo_apresentacao" id="show_100" onclick="toggleShowed(); location.reload()" autocomplete="off">
+          <label class="btn btn-outline-primary" for="show_100">Mostrar 100</label>
+        
+          <input type="radio" class="btn-check" name="tipo_apresentacao" id="show_10" onclick="toggleShowed(); location.reload()" autocomplete="off">
+          <label class="btn btn-outline-primary" for="show_10">Mostrar 10</label>
+        </div>
+  
+        <div class="btn-group m-1" role="group" aria-label="Trocar entre apresentar por ordem de market cap e volume de transações descendentes">
+          <input type="radio" class="btn-check" name="order_type" id="order_market_cap_desc" onclick="toggleOrder(); location.reload()" autocomplete="off">
+          <label class="btn btn-outline-primary" for="order_market_cap_desc">Market Cap</label>
+        
+          <input type="radio" class="btn-check" name="order_type" id="order_volume_desc" onclick="toggleOrder(); location.reload()" autocomplete="off">
+          <label class="btn btn-outline-primary" for="order_volume_desc">Volume de Transações</label>
+        </div>
+  
+        <div class="btn-group m-1" role="group" aria-label="Trocar a forma de ordenar a tabela entre market cap e data de adição à lista de favoritos">
+          <input type="radio" class="btn-check" name="moeda_apresentacao" id="eur" onclick="toggleMoeda(); location.reload()" autocomplete="off">
+          <label class="btn btn-outline-primary" for="eur">EUR</label>
+        
+          <input type="radio" class="btn-check" name="moeda_apresentacao" id="usd" onclick="toggleMoeda(); location.reload()" autocomplete="off">
+          <label class="btn btn-outline-primary" for="usd">USD</label>
+        </div>
+      </div>
       <div class="row">
         <div class="table-responsive">
-          <table class="table tabela_criptomoedas mt-5" id="tabela_homepage">
+          <table class="table mt-1 tabela_criptomoedas" id="tabela_homepage">
             <thead>
               <tr">
                 <th></th>
-                <th>#</th>
+                <th>Top</th>
                 <th class="d-none d-sm-table-cell" colspan="2">Nome</th> <!-- Desktop -->
                 <th class="d-table-cell d-sm-none">Nome</th> <!-- Mobile -->
                 <th class="d-none d-sm-table-cell">Valor</th> <!-- Desktop -->

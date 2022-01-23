@@ -72,13 +72,13 @@ function apresentarBotaoFavoritos(id)
     var temp = JSON.parse(localStorage.getItem('favoritos'));
     lista_moedas = temp ?? []; // lista_moedas é igual a temp caso este não seja nulo. Se este for nulo, lista_moedas é uma array vazia
 
-    if(idNaLista(lista_moedas, id))
+    if(lista_moedas.includes(id))
     {
         return `<a href="javascript:void(0);" onclick="abrirModalRemocao(\'${id}\')"><img class="favoritos_remover" src="./images/estrela_pre.png" /></a>`; // remover dos favoritos
     }
     else
     {
-        return `<a href="javascript:void(0);" onclick="adicionarFavoritos(\'${id}\')"><img class="favoritos_adicionar" src="./images/estrela_npre.png" /></a>`; // adicionar aos favoritos
+        return `<a href="javascript:void(0);" onclick="acionarAdicao(\'${id}\')"><img class="favoritos_adicionar" src="./images/estrela_npre.png" /></a>`; // adicionar aos favoritos
     }
 }
 
@@ -111,7 +111,8 @@ function acionarAdicao(id)
     if(response.success)
     {
         $(`#line-${id} > td:first-child > a > img`).attr("src", "./images/estrela_pre.png");
-        $(`#line-${id} > td:first-child > a`).attr("onclick", `abrirModalRemocao('${id}')`)
+        $(`#line-${id} > td:first-child > a > img`).addClass("favoritos_remover");
+        $(`#line-${id} > td:first-child > a`).attr("onclick", `abrirModalRemocao('${id}')`);
     }
     else
     {
@@ -121,7 +122,9 @@ function acionarAdicao(id)
 
 function mudar_pagina() {
     var idPesquisa = document.getElementById("pesquisa").value;
-
-    $(location).attr('href', './detalhes.html?id='+idPesquisa);
+    $(location).attr('href', './detalhes.html?id=' + idPesquisa);
 }
 
+$(document).ready(function(){
+    $(`#${obterPreferenciaMoeda()}`).prop("checked", true);
+});

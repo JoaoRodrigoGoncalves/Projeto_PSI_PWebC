@@ -17,14 +17,13 @@ function adicionarFavoritos(id_moeda)
     var temp = JSON.parse(localStorage.getItem('favoritos'));
     lista_moedas = temp ?? []; // lista_moedas é igual a temp caso este não seja nulo. Se este for nulo, lista_moedas é uma array vazia
 
-    if(idNaLista(lista_moedas, id_moeda))
+    if(lista_moedas.includes(id_moeda))
     {
         return JSON.parse('{"success": false, "message": "Esta criptomoeda já se encontra guardada"}');
     }
     else
     {
-        var novaMoeda = {id: id_moeda, data: Date()};
-        lista_moedas.push(novaMoeda);
+        lista_moedas.push(id_moeda);
         localStorage.setItem('favoritos', JSON.stringify(lista_moedas));
         return JSON.parse('{"success": true}');
     }
@@ -41,9 +40,9 @@ function removerFavoritos(id_moeda)
     var temp = JSON.parse(localStorage.getItem('favoritos'));
     lista_moedas = temp ?? []; // lista_moedas é igual a temp caso este não seja nulo. Se este for nulo, lista_moedas é uma array vazia
 
-    if(idNaLista(lista_moedas, id_moeda))
+    if(lista_moedas.includes(id_moeda))
     {
-        lista_moedas = lista_moedas.filter(item => item.id !== id_moeda);
+        lista_moedas = lista_moedas.filter(item => item !== id_moeda);
         localStorage.setItem('favoritos', JSON.stringify(lista_moedas));
         return JSON.parse('{"success": true}');
     }
@@ -88,18 +87,4 @@ function obterPreferenciaMoeda()
 {
     var moeda = localStorage.getItem('moeda');
     return moeda ?? 'eur'; // devolve moeda se não nulo. devolve 'eur' se nulo
-}
-
-/**
- * 
- */
-function idNaLista(lista, id){
-    var naLista = false;
-    $.each(lista, function(index, value){
-        if(value.id == id)
-        {
-            naLista = true;
-        }
-    });
-    return naLista;
 }
