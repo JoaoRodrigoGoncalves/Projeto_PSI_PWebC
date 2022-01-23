@@ -40,13 +40,21 @@
     </nav>
     <!-- Wrapper -->
     <div class="container">
+      <div class="btn-group m-1 mt-5" role="group" aria-label="Trocar a forma de ordenar a tabela entre market cap e data de adição à lista de favoritos">
+        <input type="radio" class="btn-check" name="moeda_apresentacao" id="eur" onclick="toggleMoeda(); location.reload()" autocomplete="off">
+        <label class="btn btn-outline-primary" for="eur">EUR</label>
+      
+        <input type="radio" class="btn-check" name="moeda_apresentacao" id="usd" onclick="toggleMoeda(); location.reload()" autocomplete="off">
+        <label class="btn btn-outline-primary" for="usd">USD</label>
+      </div>
+      
       <div class="row">
         <div class="table-responsive">
-          <table class="table tabela_criptomoedas mt-5" id="tabela_favoritos">
+          <table class="table tabela_criptomoedas mt-1" id="tabela_favoritos">
             <thead>
               <tr>
                 <th></th>
-                <th>#</th>
+                <th>Top</th>
                 <th class="d-none d-sm-table-cell" colspan="2">Nome</th>
                 <th class="d-table-cell d-sm-none">Nome</th>
                 <th>Valor</th>
