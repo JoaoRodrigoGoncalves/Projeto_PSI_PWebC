@@ -102,6 +102,7 @@ function acionarRemocao(id)
     else
     {
         console.error(response.message);
+        alert("Erro\n" + response.message);
     }
 }
 
@@ -122,9 +123,25 @@ function acionarAdicao(id)
 
 function mudar_pagina() {
     var idPesquisa = document.getElementById("pesquisa").value;
-    $(location).attr('href', './detalhes.html?id=' + idPesquisa);
+    if(idPesquisa)
+    {
+        $(location).attr('href', './detalhes.html?id=' + idPesquisa);
+    }
+    else
+    {
+        tooltip.show();
+        setTimeout(() => {tooltip.hide()}, 2500);
+    }
 }
 
 $(document).ready(function(){
     $(`#${obterPreferenciaMoeda()}`).prop("checked", true);
+});
+
+// tooltip "Indique uma moeda"
+var tooltip = new bootstrap.Tooltip($("#pesquisa"), {
+    selector: true,
+    placement: 'bottom',
+    trigger: 'manual',
+    title: 'Indique uma moeda'
 });

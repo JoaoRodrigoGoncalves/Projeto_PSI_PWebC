@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="pt">
   <head>
-    <title id="titulo"></title>
+    <title>MyCoinSpace</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,9 +11,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <!--Nosso CSS-->
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/style_detalhes.css">
   </head>
-  <body id="ConfigurarFundoEcra">
+  <body id="estilo_global">
     <!--NavBar-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
@@ -41,30 +40,61 @@
       </div>
     </nav>
     <!-- Corpo de Detalhes -->
-    <div id="CriptoDetalhes">
-		   	<span id="nome"></span><br><img id="imagemFav"><br>
-  	   	<span id="rank"></span><br>
-        <span id="precoAtual"></span><br>
-        <span id="precoChance"></span><br>
-      <div id="CriptoImg">
-        <a href="" id="link">
-		   	  <img id="image">
-        </a>
-		  </div>
-        <div class="accordion" id="accordionExample">
-          <div class="accordion-item">
-              <h2 class="accordion-header" id="headingOne">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  Descrição
-                </button>
-              </h2>
-              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                  <span id="desc"></span>
-                </div>
-              </div>
+    <div class="container">
+      <div class="row">
+        <div class="mt-2"> <!-- Por alugum motivo ter isto numa div separada faz com que os botões não ocupem a largura do elemento pai todo -->
+          <div class="btn-group m-1" role="group" aria-label="Trocar a forma de ordenar a tabela entre market cap e data de adição à lista de favoritos">
+            <input type="radio" class="btn-check" name="moeda_apresentacao" id="eur" onclick="toggleMoeda(); location.reload()" autocomplete="off">
+            <label class="btn btn-outline-primary" for="eur">EUR</label>
+          
+            <input type="radio" class="btn-check" name="moeda_apresentacao" id="usd" onclick="toggleMoeda(); location.reload()" autocomplete="off">
+            <label class="btn btn-outline-primary" for="usd">USD</label>
           </div>
-  	</div>
+        </div>
+      </div>
+      <div class="row d-block d-md-none text-center">
+        <a href="#" class="logo_criptomoeda"><img class="img-fluid" /></a>
+      </div>
+      <div class="row mt-1 border border-secondary rounded d-flex flex-wrap align-items-center">
+        <div class="col-8">
+          <div class="mt-3" id="dadosMoeda">
+            <img id="imagemFav"><br>
+            <span id="nome"></span><br>
+            <span id="rank"></span><br>
+            <span id="precoAtual"></span><br>
+            <span id="precoChance"></span>
+            
+          </div>
+        </div>
+        <div class="col-4 d-none d-md-block text-center"> <!-- Só mostramos esta div caso não estejamos num ecrã de telemovel -->
+          <a href="#" class="logo_criptomoeda"><img class="mt-1 mb-1 img-fluid" /></a>
+        </div>
+      </div>
+
+      <div class="row mt-2"> 
+        <div class="col-12 p-0 m-0"> <!-- Padding 0, Margin 0 para acompanhar as bordas da row acima -->
+          <div class="accordion" id="accordion_detalhes">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="cabecalho_detalhes">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_detalhes" aria-expanded="false" aria-controls="collapse_detalhes">
+                    Descrição
+                  </button>
+                </h2>
+                <div id="collapse_detalhes" class="accordion-collapse collapse" aria-labelledby="cabecalho_detalhes" data-bs-parent="#accordion_detalhes">
+                  <div class="accordion-body">
+                    <span id="desc"></span>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 p-0 m-0">
+          <canvas id="sparkline_canvas"></canvas>
+        </div>
+      </div>
 
     <!-- Footer -->
     <footer class="page-footer font-small blue pt-4">
@@ -118,6 +148,7 @@
     <script type="text/javascript" src="./js/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./js/chart.min.js"></script>
     <!--Nosso JavaScript-->
     <script type="text/javascript" src="./js/funcoes_comuns.js"></script>
     <script type="text/javascript" src="./js/funcoes_api.js"></script>
